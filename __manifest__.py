@@ -24,7 +24,7 @@
     'version': '11.0.1.0.0',
     'summary': "Current Stock Report for all Products in each Warehouse",
     'category': 'Warehouse',
-    'author': 'Cybrosys Techno Solutions',
+    'author': 'Gabosoft',
     'maintainer': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
