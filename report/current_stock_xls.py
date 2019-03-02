@@ -145,11 +145,11 @@ class StockReportXls(models.AbstractModel):
         for i in get_warehouse[1]:
             get_line = self.get_lines(d, i)
             for each in get_line:
-                if each['available'] < 0:
+                if each['available'] < 2:
                     sheet.write(prod_row, prod_col, each['available'], red_mark)
                 else:
                     sheet.write(prod_row, prod_col, each['available'], font_size_8)
-                if each['virtual'] < 0:
+                if each['virtual'] < 2:
                     sheet.write(prod_row, prod_col + 1, each['virtual'], red_mark)
                 else:
                     sheet.write(prod_row, prod_col + 1, each['virtual'], font_size_8)
@@ -161,7 +161,7 @@ class StockReportXls(models.AbstractModel):
                     sheet.write(prod_row, prod_col + 3, each['outgoing'], red_mark)
                 else:
                     sheet.write(prod_row, prod_col + 3, each['outgoing'], font_size_8)
-                if each['net_on_hand'] < 0:
+                if each['net_on_hand'] < 4:
                     sheet.merge_range(prod_row, prod_col + 4, prod_row, prod_col + 5, each['net_on_hand'], red_mark)
                 else:
                     sheet.merge_range(prod_row, prod_col + 4, prod_row, prod_col + 5, each['net_on_hand'], font_size_8)
