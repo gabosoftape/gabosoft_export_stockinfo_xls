@@ -104,7 +104,7 @@ class StockReportXls(models.AbstractModel):
         tz = pytz.timezone(user.tz)
         time = pytz.utc.localize(datetime.now()).astimezone(tz)
         sheet.merge_range('A8:H8', 'Report Date: ' + str(time.strftime("%Y-%m-%d %H:%M %p")), format1)
-        sheet.merge_range(8, 7, 8, count, 'Warehouses', format1)
+        sheet.merge_range(7, 8, 7, count, 'Warehouses', format1)
         sheet.merge_range('A9:H9', 'Product Information', format11)
         w_col_no = 7
         w_col_no1 = 8
