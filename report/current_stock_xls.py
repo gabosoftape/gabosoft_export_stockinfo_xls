@@ -110,7 +110,7 @@ class StockReportXls(models.AbstractModel):
         w_col_no1 = 8
         for i in get_warehouse[0]:
             w_col_no = w_col_no + 11
-            sheet.merge_range(8, w_col_no1, 8, w_col_no, i, format11)
+            sheet.merge_range(9, w_col_no1, 9, w_col_no, i, format11)
             w_col_no1 = w_col_no1 + 11
         sheet.write(9, 0, 'SKU', format21)
         sheet.merge_range(9, 1, 9, 3, 'Name', format21)
