@@ -106,8 +106,8 @@ class StockReportXls(models.AbstractModel):
         sheet.merge_range('A8:H8', 'Report Date: ' + str(time.strftime("%Y-%m-%d %H:%M %p")), format1)
         sheet.merge_range(8, 7, 8, count, 'Warehouses', format1)
         sheet.merge_range('A9:H9', 'Product Information', format11)
-        w_col_no = 6
-        w_col_no1 = 7
+        w_col_no = 7
+        w_col_no1 = 8
         for i in get_warehouse[0]:
             w_col_no = w_col_no + 11
             sheet.merge_range(8, w_col_no1, 8, w_col_no, i, format11)
