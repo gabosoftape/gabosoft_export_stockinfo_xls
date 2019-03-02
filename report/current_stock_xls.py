@@ -103,9 +103,9 @@ class StockReportXls(models.AbstractModel):
         user = self.env['res.users'].browse(self.env.uid)
         tz = pytz.timezone(user.tz)
         time = pytz.utc.localize(datetime.now()).astimezone(tz)
-        sheet.merge_range('A8:G8', 'Report Date: ' + str(time.strftime("%Y-%m-%d %H:%M %p")), format1)
+        sheet.merge_range('A8:I8', 'Report Date: ' + str(time.strftime("%Y-%m-%d %H:%M %p")), format1)
         sheet.merge_range(7, 7, 7, count, 'Warehouses', format1)
-        sheet.merge_range('A9:G9', 'Product Information', format11)
+        sheet.merge_range('A9:I9', 'Product Information', format11)
         w_col_no = 6
         w_col_no1 = 7
         for i in get_warehouse[0]:
@@ -114,11 +114,10 @@ class StockReportXls(models.AbstractModel):
             w_col_no1 = w_col_no1 + 11
         sheet.write(9, 0, 'SKU', format21)
         sheet.merge_range(9, 1, 9, 3, 'Name', format21)
-        sheet.merge_range(9, 1, 9, 3, 'Talla', format21)
-        sheet.merge_range(9, 1, 9, 3, 'Color', format21)
         sheet.merge_range(9, 4, 9, 5, 'Category', format21)
-        sheet.write(9, 6, 'Cost Price', format21)
-        p_col_no1 = 7
+        sheet.write(9, 6, 'Talla', format21)
+        sheet.write(9, 7, 'Color', format21)
+        p_col_no1 = 8
         for i in get_warehouse[0]:
             sheet.write(9, p_col_no1, 'Available', format21)
             sheet.write(9, p_col_no1 + 1, 'Virtual', format21)
@@ -137,11 +136,12 @@ class StockReportXls(models.AbstractModel):
                 sheet.write(prod_row, prod_col, each['sku'], font_size_8)
                 sheet.merge_range(prod_row, prod_col + 1, prod_row, prod_col + 3, each['name'], font_size_8_l)
                 sheet.merge_range(prod_row, prod_col + 4, prod_row, prod_col + 5, each['category'], font_size_8_l)
-                sheet.write(prod_row, prod_col + 6, each['cost_price'], font_size_8_r)
+                sheet.write(prod_row, prod_col + 6, each['talla'], font_size_8_r)
+                sheet.write(prod_row, prod_col + 7, each['color'], font_size_8_r)
                 prod_row = prod_row + 1
             break
         prod_row = 10
-        prod_col = 7
+        prod_col = 8
         for i in get_warehouse[1]:
             get_line = self.get_lines(d, i)
             for each in get_line:
