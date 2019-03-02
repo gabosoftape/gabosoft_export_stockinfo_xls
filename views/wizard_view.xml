@@ -48,7 +48,7 @@
             menu="False"
             attachment_use="False"/>
 
-        <menuitem name="Current stock in Excel"
+        <menuitem name="Informe Excel"
                   parent="stock.menu_warehouse_report"
                   id="export_excel"
                   action="wizard_act"
