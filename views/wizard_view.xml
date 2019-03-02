@@ -7,11 +7,11 @@
             <field name="model">wizard.stock.history</field>
             <field name="arch" type="xml">
                 <form string="Wizard">
-                        <group string="Warehouse">
+                        <group string="Almacen">
                             <field name="warehouse" widget="many2many_tags"/>
                         </group>
                         <notebook>
-                            <page string="Category">
+                            <page string="Categoria">
                                 <field name="category">
                                     <tree>
                                         <field name="name"/>

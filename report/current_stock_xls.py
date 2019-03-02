@@ -48,6 +48,8 @@ class StockReportXls(models.AbstractModel):
             vals = {
                 'sku': product.default_code,
                 'name': product.name,
+                'talla': product.default_talla,
+                'color': product.default_color,
                 'category': product.categ_id.name,
                 'cost_price': product.standard_price,
                 'available': available_qty,
@@ -83,7 +85,7 @@ class StockReportXls(models.AbstractModel):
         justify.set_align('justify')
         format1.set_align('center')
         red_mark.set_align('center')
-        sheet.merge_range(1, 7, 2, 10, 'Product Stock Info', format0)
+        sheet.merge_range(1, 7, 2, 10, 'Informe de Inventario', format0)
         sheet.merge_range(3, 7, 3, 10, comp, format11)
         w_house = ', '
         cat = ', '
@@ -112,6 +114,8 @@ class StockReportXls(models.AbstractModel):
             w_col_no1 = w_col_no1 + 11
         sheet.write(9, 0, 'SKU', format21)
         sheet.merge_range(9, 1, 9, 3, 'Name', format21)
+        sheet.merge_range(9, 1, 9, 3, 'Talla', format21)
+        sheet.merge_range(9, 1, 9, 3, 'Color', format21)
         sheet.merge_range(9, 4, 9, 5, 'Category', format21)
         sheet.write(9, 6, 'Cost Price', format21)
         p_col_no1 = 7
