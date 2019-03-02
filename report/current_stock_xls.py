@@ -145,11 +145,11 @@ class StockReportXls(models.AbstractModel):
         for i in get_warehouse[1]:
             get_line = self.get_lines(d, i)
             for each in get_line:
-                if each['available'] < 2:
+                if each['available'] < 0:
                     sheet.write(prod_row, prod_col, each['available'], red_mark)
                 else:
                     sheet.write(prod_row, prod_col, each['available'], font_size_8)
-                if each['virtual'] < 2:
+                if each['virtual'] < 0:
                     sheet.write(prod_row, prod_col + 1, each['virtual'], red_mark)
                 else:
                     sheet.write(prod_row, prod_col + 1, each['virtual'], font_size_8)
